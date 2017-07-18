@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function() {
         // What's the search URL?
         var searchURL = '/search?type=product&q=' + term;
         // What's the search results list?
-        var resultsList = form.find('.search-results');
+        var resultsList = form.find('ul.search-results');
         // If that's a new term and it contains at least 3 characters.
         if (term.length > 3 && term != $(this).attr('data-old-term')) {
           // Saving old query.
@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     // Clicking outside makes the results disappear.
     $('body').bind('click', function(){
-      $('.search-results').hide();
+      $('ul.search-results').hide();
     });
   });
 });
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 <!-- Some styles to get you started. -->
 <style>
-.search-results {
+ul.search-results {
   z-index: 8889;
   list-style-type: none;   
   width: {{ results_box_width }};
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
   box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.1);
   overflow: hidden;
 }
-.search-results li {
+ul.search-results li {
   display: block;
   width: 100%;
   height: 38px;
@@ -95,10 +95,10 @@ window.addEventListener('DOMContentLoaded', function() {
   line-height: 38px;
   overflow: hidden;
 }
-.search-results li:first-child {
+ul.search-results li:first-child {
   border-top: none;
 }
-.search-results .title {
+ul.search-results .title {
   float: left;
   width: {{ results_box_width | remove: 'px' | to_number | minus: 50 }}px;
   padding-left: 8px;
@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', function() {
   -o-text-overflow: ellipsis;
   text-align: left;
 }
-.search-results .thumbnail {
+ul.search-results .thumbnail {
   float: left;
   display: block;
   width: 32px;
