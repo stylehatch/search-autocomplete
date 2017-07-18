@@ -1,5 +1,5 @@
 {% comment %} Width of results box {% endcomment %}
-{% assign results_box_width = '242px' %}
+{% assign results_box_width = '100%' %}
 {% comment %} Background color of results box {% endcomment %}
 {% assign results_box_background_color = '#ffffff' %}
 {% comment %} Border color of results box {% endcomment %}
@@ -75,8 +75,8 @@ window.addEventListener('DOMContentLoaded', function() {
 ul.search-results {
   z-index: 8889;
   list-style-type: none;   
-  width: {{ results_box_width }};
-  margin: 0;
+  width: 82%;
+  margin: 0 0 0 10%;
   padding: 0;
   background: {{ results_box_background_color }};
   border: 1px solid {{ results_box_border_color }};
@@ -94,13 +94,14 @@ ul.search-results li {
   border-top: 1px solid {{ results_box_border_color }};
   line-height: 38px;
   overflow: hidden;
+  font-size: 14px;
 }
 ul.search-results li:first-child {
   border-top: none;
 }
 ul.search-results .title {
   float: left;
-  width: {{ results_box_width | remove: 'px' | to_number | minus: 50 }}px;
+  width: calc(100% - 50px);
   padding-left: 8px;
   white-space: nowrap;
   overflow: hidden;
